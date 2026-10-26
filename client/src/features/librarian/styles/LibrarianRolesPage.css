@@ -1,0 +1,183 @@
+.roles-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.roles-header {
+  margin-bottom: 24px;
+}
+
+.roles-kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #5856D6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.roles-header h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #172033;
+  margin: 4px 0 6px;
+}
+
+.roles-header p {
+  color: #68738A;
+  font-size: 0.95rem;
+}
+
+/* Tiers Grid */
+.role-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.role-tier-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(17, 27, 53, 0.04);
+}
+
+.role-tier-card.admin {
+  border-top: 3px solid #BE185D;
+}
+
+.role-tier-card.librarian {
+  border-top: 3px solid #5856D6;
+}
+
+.role-tier-card.assistant {
+  border-top: 3px solid #D97706;
+}
+
+.role-tier-card.student {
+  border-top: 3px solid #16845B;
+}
+
+.tier-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.tier-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tier-badge.admin { background: #FDF2F8; color: #BE185D; }
+.tier-badge.librarian { background: #EEF0FD; color: #5856D6; }
+.tier-badge.assistant { background: #FEF3C7; color: #D97706; }
+.tier-badge.student { background: #E8F5E9; color: #16845B; }
+
+.tier-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #172033;
+  margin: 0;
+}
+
+.role-tier-card p {
+  font-size: 0.78rem;
+  color: #68738A;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.tier-perm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid #EEF2F6;
+  padding-top: 10px;
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+/* Permissions Matrix Table */
+.perm-matrix-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(17, 27, 53, 0.04);
+}
+
+.matrix-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  background: #F6F8FC;
+  border-bottom: 1px solid #E4E8F0;
+  color: #5856D6;
+}
+
+.matrix-card-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #172033;
+  margin: 0;
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.matrix-table th {
+  background: #FFFFFF;
+  padding: 12px 18px;
+  font-weight: 700;
+  color: #68738A;
+  border-bottom: 1px solid #E4E8F0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.matrix-table td {
+  padding: 12px 18px;
+  border-bottom: 1px solid #EEF2F6;
+  vertical-align: middle;
+}
+
+.matrix-table tr:hover {
+  background: #F8FAFD;
+}
+
+.perm-yes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #16845B;
+  font-weight: 600;
+}
+
+.perm-no {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #DC4545;
+  font-weight: 500;
+}
+
+.perm-limited {
+  background: #F6F8FC;
+  border: 1px solid #E4E8F0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #5856D6;
+}

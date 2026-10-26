@@ -1,0 +1,267 @@
+.health-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.health-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.health-kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #5856D6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.health-header h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #172033;
+  margin: 4px 0 6px;
+}
+
+.health-header p {
+  color: #68738A;
+  font-size: 0.95rem;
+  max-width: 600px;
+}
+
+.health-actions-group {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-run-diag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  color: #172033;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-run-diag:hover {
+  background: #F6F8FC;
+  border-color: #5856D6;
+  color: #5856D6;
+}
+
+.btn-trigger-backup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #5856D6;
+  border: none;
+  color: #FFFFFF;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-trigger-backup:hover {
+  background: #4543B8;
+}
+
+.health-notice-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.health-notice-banner.success {
+  background: #E8F5E9;
+  border: 1px solid #C8E6C9;
+  color: #16845B;
+}
+
+.health-notice-banner.error {
+  background: #FEE2E2;
+  border: 1px solid #FFCDD2;
+  color: #DC4545;
+}
+
+/* Services Grid */
+.services-health-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.service-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(17, 27, 53, 0.04);
+}
+
+.service-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.service-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon-box.db {
+  background: #EEF0FD;
+  color: #5856D6;
+}
+
+.service-icon-box.api {
+  background: #E0F2FE;
+  color: #2875D7;
+}
+
+.service-icon-box.cron {
+  background: #FEF3C7;
+  color: #D97706;
+}
+
+.service-icon-box.backup {
+  background: #E8F5E9;
+  color: #16845B;
+}
+
+.service-status-pill.online {
+  font-size: 0.7rem;
+  font-weight: 800;
+  background: #E8F5E9;
+  color: #16845B;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.service-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #172033;
+  margin: 0 0 4px;
+}
+
+.service-card p {
+  font-size: 0.8rem;
+  color: #68738A;
+  margin: 0 0 16px;
+  line-height: 1.4;
+}
+
+.service-metrics-row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #EEF2F6;
+  padding-top: 12px;
+}
+
+.service-metrics-row span {
+  font-size: 0.72rem;
+  color: #8F9BB3;
+  display: block;
+}
+
+.service-metrics-row strong {
+  font-size: 0.82rem;
+  color: #172033;
+  margin-top: 2px;
+  display: block;
+}
+
+/* Telemetry Panel */
+.telemetry-panel {
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(17, 27, 53, 0.04);
+}
+
+.telemetry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.telemetry-icon {
+  color: #5856D6;
+}
+
+.telemetry-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #172033;
+  margin: 0;
+}
+
+.telemetry-header span {
+  font-size: 0.78rem;
+  color: #68738A;
+}
+
+.telemetry-live-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #16845B;
+  background: #E8F5E9;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.telemetry-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.telemetry-stat-tile {
+  background: #F6F8FC;
+  border: 1px solid #E4E8F0;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.telemetry-stat-tile span {
+  font-size: 0.75rem;
+  color: #68738A;
+  display: block;
+  font-weight: 500;
+}
+
+.telemetry-stat-tile strong {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #172033;
+  margin-top: 4px;
+  display: block;
+}

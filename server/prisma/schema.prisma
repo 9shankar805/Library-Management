@@ -1,0 +1,363 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 1. User & Authentication
+model User {
+  email        String     @id @db.VarChar(100)
+  username     String     @db.VarChar(255)
+  role         String     @db.VarChar(20)
+  passwordHash String     @map("password_hash") @db.VarChar(500)
+  student      Student?
+  librarian    Librarian?
+
+  @@map("users")
+}
+
+model Student {
+  rollNo          String            @id @map("student_roll_no") @db.VarChar(20)
+  email           String            @unique @db.VarChar(100)
+  department      String            @db.VarChar(100)
+  yearOfStudy     Int               @map("year_of_study")
+  user            User              @relation(fields: [email], references: [email], onDelete: Cascade, onUpdate: Cascade)
+  issuedBooks     IssuedBook[]
+  borrowHistories BorrowHistory[]
+  reservations    BookReservation[]
+  fines           Fine[]
+
+  @@map("students")
+}
+
+model Librarian {
+  staffId       String         @id @map("librarian_id") @db.VarChar(20)
+  email         String         @unique @db.VarChar(100)
+  user          User           @relation(fields: [email], references: [email], onDelete: Cascade, onUpdate: Cascade)
+  announcements Announcement[]
+
+  @@map("librarian")
+}
+
+model Otp {
+  id         Int      @id @default(autoincrement())
+  email      String   @db.VarChar(100)
+  otp        String   @db.VarChar(6)
+  createdAt  DateTime @default(now()) @map("created_at")
+  expiresAt  DateTime @map("expires_at")
+  isVerified Boolean  @default(false) @map("is_verified")
+
+  @@map("otps")
+}
+
+// 2. Books, Categories, Departments & Shelves
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(50)
+  books Book[]
+
+  @@map("category")
+}
+
+model Department {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(100)
+  books Book[]
+
+  @@map("department")
+}
+
+model Shelf {
+  id             Int                @id @default(autoincrement())
+  building       String             @default("Central Library") @db.VarChar(100)
+  floor          Int                @default(1)
+  section        String             @db.VarChar(50)
+  rackNumber     String             @map("rack_number") @db.VarChar(10)
+  shelfTier      String             @default("Tier 1") @map("shelf_tier") @db.VarChar(20)
+  coordinatesX   Int?               @map("coordinates_x")
+  coordinatesY   Int?               @map("coordinates_y")
+  availabilities BookAvailability[]
+  copies         BookCopy[]
+
+  @@map("shelf")
+}
+
+model Book {
+  id              Int                @id @default(autoincrement()) @map("book_id")
+  title           String             @db.VarChar(255)
+  author          String             @db.VarChar(100)
+  isbn            String             @unique @db.VarChar(13)
+  categoryId      Int?               @map("category_id")
+  description     String?            @db.Text
+  departmentId    Int?               @map("department_id")
+  publishedYear   Int?               @map("published_year")
+  category        Category?          @relation(fields: [categoryId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  department      Department?        @relation(fields: [departmentId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  availabilities  BookAvailability[]
+  copies          BookCopy[]
+  issuedBooks     IssuedBook[]
+  borrowHistories BorrowHistory[]
+  reservations    BookReservation[]
+
+  @@map("books")
+}
+
+model BookCopy {
+  id          Int          @id @default(autoincrement()) @map("copy_id")
+  bookId      Int          @map("book_id")
+  accessionNo String       @unique @map("accession_no") @db.VarChar(50)
+  barcode     String       @unique @db.VarChar(50)
+  rfidTag     String       @unique @map("rfid_tag") @db.VarChar(64)
+  status      String       @default("AVAILABLE") @db.VarChar(30) // AVAILABLE, ISSUED, RESERVED, DAMAGED, LOST, MAINTENANCE
+  condition   String       @default("Good") @db.VarChar(50) // New, Good, Fair, Worn, Damaged
+  shelfId     Int?         @map("shelf_id")
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+  book        Book         @relation(fields: [bookId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  shelf       Shelf?            @relation(fields: [shelfId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  issuedBooks IssuedBook[]
+  reservations BookReservation[]
+
+  @@map("book_copies")
+}
+
+model BookAvailability {
+  id              Int    @id @default(autoincrement())
+  bookId          Int?   @map("book_id")
+  totalCopies     Int    @map("total_copies")
+  availableCopies Int    @map("available_copies")
+  shelfId         Int?   @map("shelf_id")
+  book            Book?  @relation(fields: [bookId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  shelf           Shelf? @relation(fields: [shelfId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@map("book_availability")
+}
+
+// 3. Status
+model Status {
+  id           Int               @id @default(autoincrement())
+  status       String            @db.VarChar(50)
+  reservations BookReservation[]
+
+  @@map("statuses")
+}
+
+// 4. Circulation & Reservations
+model IssuedBook {
+  id           Int        @id @default(autoincrement())
+  bookId       Int?       @map("book_id")
+  copyId       Int?       @map("copy_id")
+  studentId    String     @map("student_id") @db.VarChar(20)
+  issueDate    DateTime   @default(now()) @map("issue_date")
+  dueDate      DateTime   @map("due_date")
+  returnDate   DateTime?  @map("return_date")
+  isReturned   Boolean    @default(false) @map("is_returned")
+  renewalCount Int        @default(0) @map("renewal_count")
+  book         Book?      @relation(fields: [bookId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  copy         BookCopy?  @relation(fields: [copyId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  student      Student    @relation(fields: [studentId], references: [rollNo], onDelete: Cascade, onUpdate: Cascade)
+  fines        Fine[]
+
+  @@map("issued_books")
+}
+
+model BorrowHistory {
+  id         Int       @id @default(autoincrement())
+  studentId  String    @map("student_id") @db.VarChar(20)
+  bookId     Int?      @map("book_id")
+  issueDate  DateTime  @map("issue_date")
+  returnDate DateTime? @map("return_date")
+  student    Student   @relation(fields: [studentId], references: [rollNo], onDelete: Cascade, onUpdate: Cascade)
+  book       Book?     @relation(fields: [bookId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@map("borrow_history")
+}
+
+model BookReservation {
+  id            Int       @id @default(autoincrement())
+  token         String?   @unique @db.VarChar(20)
+  studentId     String    @map("student_id") @db.VarChar(20)
+  bookId        Int?      @map("book_id")
+  copyId        Int?      @map("copy_id")
+  reservedDate  DateTime  @default(now()) @map("reserved_date")
+  expiresAt     DateTime? @map("expires_at")
+  queuePosition Int       @map("queue_position")
+  statusId      Int?      @map("status_id")
+  student       Student   @relation(fields: [studentId], references: [rollNo], onDelete: Cascade, onUpdate: Cascade)
+  book          Book?     @relation(fields: [bookId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  copy          BookCopy? @relation(fields: [copyId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  status        Status?   @relation(fields: [statusId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@map("book_reservations")
+}
+
+// 5. Fines & Fine Types & Fine Payments
+model FineType {
+  id    Int    @id @default(autoincrement())
+  type  String @db.VarChar(50)
+  fines Fine[]
+
+  @@map("fine_types")
+}
+
+model Fine {
+  id           Int           @id @default(autoincrement())
+  studentId    String        @map("student_id") @db.VarChar(20)
+  issuedBookId Int?          @map("issued_book_id")
+  fineTypeId   Int?          @map("fine_type_id")
+  amount       Decimal       @db.Decimal(10, 2)
+  issueDate    DateTime      @default(now()) @map("issue_date")
+  isPaid       Boolean       @default(false) @map("is_paid")
+  description  String?       @db.Text
+  student      Student       @relation(fields: [studentId], references: [rollNo], onDelete: Cascade, onUpdate: Cascade)
+  issuedBook   IssuedBook?   @relation(fields: [issuedBookId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  fineType     FineType?     @relation(fields: [fineTypeId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  payments     FinePayment[]
+
+  @@map("fines")
+}
+
+model FinePayment {
+  id            Int      @id @default(autoincrement())
+  fineId        Int      @map("fine_id")
+  paymentDate   DateTime @default(now()) @map("payment_date")
+  amountPaid    Decimal  @map("amount_paid") @db.Decimal(10, 2)
+  paymentMethod String   @map("payment_method") @db.VarChar(50)
+  transactionId String?  @map("transaction_id") @db.VarChar(100)
+  fine          Fine     @relation(fields: [fineId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("fine_payments")
+}
+
+// 6. System Constants & Announcements
+model LibraryConstants {
+  id                 Int     @id @default(autoincrement())
+  maxBorrowDays      Int     @map("max_borrow_days")
+  maxBooksPerStudent Int     @map("max_books_per_student")
+  overdueFinePerDay  Decimal @map("overdue_fine_per_day") @db.Decimal(10, 2)
+  maxRenewals        Int     @map("max_renewals")
+  renewalExtendsDays Int     @map("renewal_extends_days")
+
+  @@map("library_constants")
+}
+
+model Announcement {
+  id          Int        @id @default(autoincrement())
+  title       String     @db.VarChar(255)
+  content     String     @db.Text
+  librarianId String?    @map("librarian_id") @db.VarChar(20)
+  isActive    Boolean    @default(true) @map("is_active")
+  imageUrl    String?    @map("image_url") @db.VarChar(500)
+  createdAt   DateTime   @default(now()) @map("created_at")
+  expiresAt   DateTime?  @map("expires_at")
+  librarian   Librarian? @relation(fields: [librarianId], references: [staffId], onDelete: SetNull, onUpdate: Cascade)
+
+  @@map("announcements")
+}
+
+// 7. In-App Notifications
+model Notification {
+  id        Int      @id @default(autoincrement())
+  userId    String   @map("user_id") @db.VarChar(100)
+  type      String   @db.VarChar(50) // DUE_REMINDER, OVERDUE_ALERT, RESERVATION_READY, RECEIPT, GENERAL
+  title     String   @db.VarChar(255)
+  message   String   @db.Text
+  link      String?  @db.VarChar(255)
+  isRead    Boolean  @default(false) @map("is_read")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("notifications")
+}
+
+model UserPreference {
+  id                Int     @id @default(autoincrement())
+  userId            String  @unique @map("user_id") @db.VarChar(100)
+  emailReminders    Boolean @default(true) @map("email_reminders")
+  inAppAlerts       Boolean @default(true) @map("in_app_alerts")
+  overdueAlerts     Boolean @default(true) @map("overdue_alerts")
+  reservationAlerts Boolean @default(true) @map("reservation_alerts")
+
+  @@map("user_preferences")
+}
+
+model BackgroundJobLog {
+  id             Int       @id @default(autoincrement())
+  jobName        String    @map("job_name") @db.VarChar(100)
+  status         String    @db.VarChar(30) // SUCCESS, FAILED, RUNNING
+  details        String?   @db.Text
+  processedCount Int       @default(0) @map("processed_count")
+  startedAt      DateTime  @default(now()) @map("started_at")
+  completedAt    DateTime? @map("completed_at")
+
+  @@map("background_job_logs")
+}
+
+// 8. Digital Library Resources
+model DigitalResource {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  author      String?  @db.VarChar(100)
+  description String?  @db.Text
+  type        String   @db.VarChar(50) // EBOOK, NOTES, THESIS, RESEARCH_PAPER
+  fileUrl     String   @map("file_url") @db.VarChar(500)
+  fileSize    String?  @map("file_size") @db.VarChar(20)
+  department  String?  @db.VarChar(100)
+  uploadedBy  String?  @map("uploaded_by") @db.VarChar(100)
+  accessRole  String   @default("ALL") @map("access_role") @db.VarChar(20)
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("digital_resources")
+}
+
+// 9. Administration, Procurement & Audit Trails
+model AuditLog {
+  id          Int      @id @default(autoincrement())
+  action      String   @db.VarChar(100)
+  entityType  String   @map("entity_type") @db.VarChar(50)
+  entityId    String?  @map("entity_id") @db.VarChar(100)
+  performedBy String   @map("performed_by") @db.VarChar(100)
+  details     String?  @db.Text
+  ipAddress   String?  @map("ip_address") @db.VarChar(50)
+  timestamp   DateTime @default(now())
+
+  @@map("audit_logs")
+}
+
+model ProcurementRequest {
+  id             Int      @id @default(autoincrement())
+  title          String   @db.VarChar(255)
+  author         String   @db.VarChar(100)
+  isbn           String?  @db.VarChar(20)
+  publisher      String?  @db.VarChar(100)
+  estimatedPrice Decimal? @map("estimated_price") @db.Decimal(10, 2)
+  department     String?  @db.VarChar(100)
+  requestedBy    String   @map("requested_by") @db.VarChar(100)
+  requesterRole  String   @map("requester_role") @db.VarChar(20)
+  status         String   @default("PENDING") @db.VarChar(30) // PENDING, APPROVED, ORDERED, RECEIVED, REJECTED
+  notes          String?  @db.Text
+  supplier       String?  @db.VarChar(100)
+  budgetCode     String?  @map("budget_code") @db.VarChar(50)
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  @@map("procurement_requests")
+}
+
+model InventoryAuditSession {
+  id             Int       @id @default(autoincrement())
+  sessionName    String    @map("session_name") @db.VarChar(100)
+  conductedBy    String    @map("conducted_by") @db.VarChar(100)
+  status         String    @default("IN_PROGRESS") @db.VarChar(30) // IN_PROGRESS, COMPLETED
+  totalExpected  Int       @default(0) @map("total_expected")
+  totalScanned   Int       @default(0) @map("total_scanned")
+  totalMissing   Int       @default(0) @map("total_missing")
+  totalMisplaced Int       @default(0) @map("total_misplaced")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  completedAt    DateTime? @map("completed_at")
+
+  @@map("inventory_audit_sessions")
+}
+

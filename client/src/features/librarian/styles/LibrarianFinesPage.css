@@ -1,0 +1,527 @@
+.fines-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.fines-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.fines-kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #5856D6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fines-header h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #172033;
+  margin: 4px 0 6px;
+}
+
+.fines-header p {
+  color: #68738A;
+  font-size: 0.95rem;
+  max-width: 600px;
+}
+
+.btn-export-fines {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  color: #172033;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-export-fines:hover {
+  background: #F6F8FC;
+  border-color: #5856D6;
+  color: #5856D6;
+}
+
+/* KPI Tiles */
+.fines-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.fines-kpi-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 1px 3px rgba(17, 27, 53, 0.04);
+}
+
+.fines-kpi-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fines-kpi-icon.amber {
+  background: #FEF3C7;
+  color: #D97706;
+}
+
+.fines-kpi-icon.green {
+  background: #E8F5E9;
+  color: #16845B;
+}
+
+.fines-kpi-icon.red {
+  background: #FEE2E2;
+  color: #DC4545;
+}
+
+.fines-kpi-icon.indigo {
+  background: #EEF0FD;
+  color: #5856D6;
+}
+
+.fines-kpi-val {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #172033;
+  line-height: 1.15;
+}
+
+.fines-kpi-label {
+  font-size: 0.78rem;
+  color: #68738A;
+  font-weight: 500;
+}
+
+/* Toolbar */
+.fines-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.fines-search-box {
+  flex: 1;
+  min-width: 280px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fines-search-box .search-icon {
+  position: absolute;
+  left: 12px;
+  color: #8F9BB3;
+}
+
+.fines-search-box input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border: 1px solid #E4E8F0;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  background: #FFFFFF;
+  color: #172033;
+  outline: none;
+}
+
+.fines-filter-chips {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-chip {
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  color: #68738A;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-chip.active {
+  background: #5856D6;
+  border-color: #5856D6;
+  color: #FFFFFF;
+}
+
+/* Table */
+.fines-table-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  border-radius: 12px;
+  overflow-x: auto;
+  box-shadow: 0 1px 3px rgba(17, 27, 53, 0.04);
+}
+
+.fines-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.fines-table th {
+  background: #F6F8FC;
+  padding: 12px 16px;
+  font-weight: 700;
+  color: #68738A;
+  border-bottom: 1px solid #E4E8F0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.fines-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #EEF2F6;
+  vertical-align: middle;
+}
+
+.student-cell strong {
+  display: block;
+  color: #172033;
+}
+
+.student-cell span {
+  font-size: 0.75rem;
+  color: #68738A;
+}
+
+.book-cell {
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #172033;
+  font-weight: 500;
+}
+
+.overdue-days-tag {
+  font-size: 0.72rem;
+  background: #FEF3C7;
+  color: #D97706;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.amount-text {
+  font-size: 0.95rem;
+  color: #172033;
+}
+
+.fine-status-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.fine-status-badge.paid {
+  background: #E8F5E9;
+  color: #16845B;
+}
+
+.fine-status-badge.unpaid {
+  background: #FEE2E2;
+  color: #DC4545;
+}
+
+.btn-collect-fine {
+  background: #5856D6;
+  color: #FFFFFF;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-collect-fine:hover {
+  background: #4543B8;
+}
+
+.btn-print-receipt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  color: #68738A;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.btn-print-receipt:hover {
+  background: #F6F8FC;
+  color: #172033;
+}
+
+/* Modals */
+.fines-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 27, 53, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.fines-modal {
+  background: #FFFFFF;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 460px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(17, 27, 53, 0.2);
+}
+
+.fines-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.fines-modal-header h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #172033;
+  margin: 0;
+}
+
+.fines-modal-header button {
+  background: none;
+  border: none;
+  color: #8F9BB3;
+  cursor: pointer;
+}
+
+.fine-payment-callout {
+  background: #F6F8FC;
+  border: 1px solid #E4E8F0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.callout-label {
+  font-size: 0.75rem;
+  color: #68738A;
+  display: block;
+}
+
+.callout-amount {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #DC4545;
+}
+
+.selector-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #172033;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.method-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.method-card {
+  border: 1px solid #E4E8F0;
+  border-radius: 8px;
+  padding: 12px 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #68738A;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.method-card input {
+  display: none;
+}
+
+.method-card.active {
+  border-color: #5856D6;
+  background: #EEF0FD;
+  color: #5856D6;
+}
+
+.fines-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-confirm-payment {
+  background: #16845B;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-confirm-payment:hover {
+  background: #0f6c48;
+}
+
+.btn-cancel {
+  background: #F6F8FC;
+  border: 1px solid #E4E8F0;
+  color: #68738A;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+/* Receipt Modal */
+.fines-receipt-modal {
+  background: #FFFFFF;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  padding: 28px;
+  box-shadow: 0 20px 40px rgba(17, 27, 53, 0.2);
+  text-align: center;
+}
+
+.receipt-logo {
+  color: #5856D6;
+  margin-bottom: 6px;
+}
+
+.receipt-header h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #172033;
+  margin: 0;
+}
+
+.receipt-header span {
+  font-size: 0.75rem;
+  color: #68738A;
+}
+
+.receipt-divider {
+  border-top: 1px dashed #E4E8F0;
+  margin: 16px 0;
+}
+
+.receipt-details-list {
+  text-align: left;
+  font-size: 0.82rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.receipt-row span {
+  color: #68738A;
+}
+
+.receipt-row strong {
+  color: #172033;
+}
+
+.receipt-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.receipt-total {
+  font-size: 1.25rem;
+  color: #16845B;
+  font-weight: 800;
+}
+
+.receipt-stamp {
+  margin: 20px 0 16px;
+  padding: 6px;
+  border: 1px dashed #16845B;
+  color: #16845B;
+  font-weight: 800;
+  font-size: 0.78rem;
+  border-radius: 4px;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.receipt-actions button {
+  flex: 1;
+}
+
+.fines-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #E4E8F0;
+  border-top-color: #5856D6;
+  border-radius: 50%;
+  animation: finesSpin 0.7s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes finesSpin {
+  to { transform: rotate(360deg); }
+}

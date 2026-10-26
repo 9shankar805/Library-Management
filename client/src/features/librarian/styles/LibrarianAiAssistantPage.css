@@ -1,0 +1,252 @@
+.ai-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.ai-header {
+  margin-bottom: 24px;
+}
+
+.ai-kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #5856D6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ai-header h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #172033;
+  margin: 4px 0 6px;
+}
+
+.ai-header p {
+  color: #68738A;
+  font-size: 0.95rem;
+}
+
+.ai-chat-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  height: 620px;
+  box-shadow: 0 1px 3px rgba(17, 27, 53, 0.04);
+  overflow: hidden;
+}
+
+.ai-messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ai-message-row {
+  display: flex;
+  gap: 12px;
+  max-width: 85%;
+}
+
+.ai-message-row.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.ai-message-row.ai {
+  align-self: flex-start;
+}
+
+.ai-avatar-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #5856D6;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ai-bubble {
+  background: #F6F8FC;
+  border: 1px solid #E4E8F0;
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+
+.ai-message-row.user .ai-bubble {
+  background: #5856D6;
+  border-color: #5856D6;
+  color: #FFFFFF;
+}
+
+.ai-bubble-text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.ai-matched-books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.ai-book-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.ai-book-cover {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #EEF0FD;
+  color: #5856D6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ai-book-meta strong {
+  font-size: 0.82rem;
+  color: #172033;
+  display: block;
+}
+
+.ai-book-meta span {
+  font-size: 0.72rem;
+  color: #68738A;
+}
+
+.ai-shelf-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: #2875D7;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.ai-suggestions-row {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed #E4E8F0;
+}
+
+.ai-suggestions-row span {
+  font-size: 0.72rem;
+  color: #8F9BB3;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.suggestions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.suggestion-chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #FFFFFF;
+  border: 1px solid #E4E8F0;
+  color: #5856D6;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.suggestion-chip:hover {
+  background: #EEF0FD;
+  border-color: #5856D6;
+}
+
+.ai-input-bar {
+  display: flex;
+  padding: 14px 18px;
+  border-top: 1px solid #E4E8F0;
+  background: #FFFFFF;
+  gap: 10px;
+}
+
+.ai-input-bar input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #E4E8F0;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  background: #F6F8FC;
+  outline: none;
+}
+
+.ai-input-bar input:focus {
+  border-color: #5856D6;
+  background: #FFFFFF;
+}
+
+.ai-btn-send {
+  background: #5856D6;
+  border: none;
+  color: #FFFFFF;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ai-btn-send:hover:not(:disabled) {
+  background: #4543B8;
+}
+
+.ai-btn-send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ai-bubble.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #68738A;
+  font-size: 0.82rem;
+}
+
+.ai-dot-pulse {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #5856D6;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(0.8); opacity: 0.5; }
+  to { transform: scale(1.2); opacity: 1; }
+}
