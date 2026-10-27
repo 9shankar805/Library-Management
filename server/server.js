@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
 import authRoutes from "./routes/authRoutes.js";
 import bookRoutes from "./routes/bookRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
@@ -27,7 +29,14 @@ import { initBackgroundScheduler } from "./services/cronService.js";
 import { processExpiredReservations } from "./controllers/reservationController.js";
 import { helmetMiddleware, authLimiter, apiLimiter, sanitizeInputs, errorHandler } from "./middleware/security.js";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const clientDistPath = path.resolve(__dirname, "../client/dist");
+
 const app = express();
+
+// Trust reverse proxy (essential for Render load balancers and rate limiting)
+app.set("trust proxy", 1);
 
 // Security Hardening: Helmet Headers & Input Sanitization
 app.use(helmetMiddleware);
@@ -35,8 +44,21 @@ app.use(cors());
 app.use(express.json());
 app.use(sanitizeInputs);
 
+// API Health Check (used by Render health check monitoring)
 app.get("/api/health", (req, res) => {
     res.status(200).json({ success: true, message: "Server is running securely" });
+});
+
+// Root API welcome endpoint (fallback if frontend is not served by Express)
+app.get("/", (req, res, next) => {
+    if (fs.existsSync(clientDistPath)) {
+        return next();
+    }
+    res.status(200).json({
+        success: true,
+        message: "Library Management System API is live and operational",
+        health: "/api/health"
+    });
 });
 
 // Rate Limiters
@@ -76,6 +98,15 @@ app.get("/api/test-report/download", (req, res) => {
         }
     });
 });
+
+// Serve static frontend assets if client build exists (unified fullstack deployment)
+if (fs.existsSync(clientDistPath)) {
+    app.use(express.static(clientDistPath));
+    app.get("*", (req, res, next) => {
+        if (req.path.startsWith("/api")) return next();
+        res.sendFile(path.join(clientDistPath, "index.html"));
+    });
+}
 
 // Centralized Error Handler (suppresses stack traces in production)
 app.use(errorHandler);

@@ -1,8 +1,16 @@
 {
+  "name": "library-management-system",
+  "version": "1.0.0",
   "scripts": {
     "client": "npm --prefix client run dev",
     "server": "npm --prefix server run dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build:client": "npm --prefix client install && npm --prefix client run build",
+    "build:server": "npm --prefix server install && npm --prefix server run build",
+    "build": "npm run build:client && npm run build:server",
+    "start": "npm --prefix server start",
+    "db:push": "npm --prefix server run db:push",
+    "seed": "npm --prefix server run seed"
   },
   "devDependencies": {
     "concurrently": "^9.2.4"

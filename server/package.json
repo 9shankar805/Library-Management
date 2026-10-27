@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "node server.js ",
+    "build": "npx prisma generate",
+    "start": "node server.js",
+    "db:push": "npx prisma db push",
     "seed": "npx prisma db seed",
     "test:report": "node scripts/generateTestReport.js",
     "test:audit": "node scripts/runSystemAuditTests.js",
