@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import {
+  Landmark,
   Menu,
   Search,
   Plus,
@@ -94,7 +95,7 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
           title="Search books, members, accession tags (Ctrl + K)"
         >
           <Search size={16} className="search-icon" />
-          <span className="search-placeholder">Quick search catalog, accession IDs, members...</span>
+          <span className="search-placeholder">द्रुत खोज (Search catalog, accession, members...)</span>
           <span className="search-shortcut-badge">
             <kbd>Ctrl</kbd> <kbd>K</kbd>
           </span>
@@ -112,7 +113,7 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
             aria-expanded={quickCreateOpen}
           >
             <Plus size={16} />
-            <span className="quick-create-label">Quick Action</span>
+            <span className="quick-create-label">द्रुत कार्य (Action)</span>
             <ChevronDown size={14} />
           </button>
 
@@ -127,8 +128,8 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
               >
                 <ScanBarcode size={16} className="item-icon" />
                 <div>
-                  <strong>Issue Book to Member</strong>
-                  <span>Check out copy using barcode or ID</span>
+                  <strong>पुस्तक वितरण (Issue Book)</strong>
+                  <span>बारकोड वा पाठक परिचयमार्फत पुस्तक जारी</span>
                 </div>
               </div>
               <div
@@ -140,8 +141,8 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
               >
                 <BookCopy size={16} className="item-icon" />
                 <div>
-                  <strong>Catalog & Stock Update</strong>
-                  <span>Manage physical accession copies</span>
+                  <strong>ग्रन्थ सूची तथा मौज्दात (Catalog)</strong>
+                  <span>भौतिक पुस्तक प्रतिलिपि तथा वर्गीकरण</span>
                 </div>
               </div>
               <div
@@ -153,8 +154,8 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
               >
                 <ShoppingCart size={16} className="item-icon" />
                 <div>
-                  <strong>New Purchase Order</strong>
-                  <span>Acquisition request & budgets</span>
+                  <strong>नयाँ खरिद माग (Procurement)</strong>
+                  <span>सार्वजनिक खरिद ऐन अनुसार खरिद माग</span>
                 </div>
               </div>
               <div
@@ -166,8 +167,8 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
               >
                 <ClipboardCheck size={16} className="item-icon" />
                 <div>
-                  <strong>Start Stock Verification</strong>
-                  <span>Scan shelf racks and reconcile</span>
+                  <strong>मौज्दात अडिट (Verification)</strong>
+                  <span>दराज तथा र्याक भौतिक प्रमाणीकरण</span>
                 </div>
               </div>
             </div>

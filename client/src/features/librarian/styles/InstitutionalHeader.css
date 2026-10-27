@@ -76,8 +76,8 @@
 
 .header-search-bar:hover {
   background: #FFFFFF;
-  border-color: var(--primary, #5856D6);
-  box-shadow: 0 0 0 2px rgba(88, 86, 214, 0.1);
+  border-color: var(--gov-navy, #0C3866);
+  box-shadow: 0 0 0 2px rgba(12, 56, 102, 0.12);
 }
 
 .search-icon {
@@ -177,16 +177,18 @@
 }
 
 .header-user-avatar {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: var(--primary, #5856D6);
+  background: radial-gradient(circle, #0C3866 0%, #07264A 100%);
+  border: 1.5px solid var(--gov-gold, #C59B27);
   color: #FFFFFF;
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .header-user-name {
@@ -234,7 +236,7 @@
 }
 
 .quick-menu-item .item-icon {
-  color: #5856D6;
+  color: var(--gov-navy, #0C3866);
   flex-shrink: 0;
 }
 
