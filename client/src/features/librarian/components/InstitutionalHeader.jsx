@@ -121,59 +121,67 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
           </button>
 
           {quickCreateOpen && (
-            <div className="quick-create-menu">
-              <div
+            <div className="quick-create-menu" role="menu" aria-label="Quick Actions">
+              <button
+                type="button"
                 className="quick-menu-item"
+                role="menuitem"
                 onClick={() => {
                   setQuickCreateOpen(false);
                   navigate("/librarian/issue-book?tab=issue");
                 }}
               >
-                <ScanBarcode size={16} className="item-icon" />
+                <ScanBarcode size={18} className="item-icon" />
                 <div>
                   <strong>पुस्तक वितरण (Issue Book)</strong>
                   <span>बारकोड वा पाठक परिचयमार्फत पुस्तक जारी</span>
                 </div>
-              </div>
-              <div
+              </button>
+              <button
+                type="button"
                 className="quick-menu-item"
+                role="menuitem"
                 onClick={() => {
                   setQuickCreateOpen(false);
                   navigate("/librarian/update-stock");
                 }}
               >
-                <BookCopy size={16} className="item-icon" />
+                <BookCopy size={18} className="item-icon" />
                 <div>
                   <strong>ग्रन्थ सूची तथा मौज्दात (Catalog)</strong>
                   <span>भौतिक पुस्तक प्रतिलिपि तथा वर्गीकरण</span>
                 </div>
-              </div>
-              <div
+              </button>
+              <button
+                type="button"
                 className="quick-menu-item"
+                role="menuitem"
                 onClick={() => {
                   setQuickCreateOpen(false);
                   navigate("/librarian/procurement");
                 }}
               >
-                <ShoppingCart size={16} className="item-icon" />
+                <ShoppingCart size={18} className="item-icon" />
                 <div>
                   <strong>नयाँ खरिद माग (Procurement)</strong>
                   <span>सार्वजनिक खरिद ऐन अनुसार खरिद माग</span>
                 </div>
-              </div>
-              <div
+              </button>
+              <button
+                type="button"
                 className="quick-menu-item"
+                role="menuitem"
                 onClick={() => {
                   setQuickCreateOpen(false);
                   navigate("/librarian/inventory-audit");
                 }}
               >
-                <ClipboardCheck size={16} className="item-icon" />
+                <ClipboardCheck size={18} className="item-icon" />
                 <div>
                   <strong>मौज्दात अडिट (Verification)</strong>
                   <span>दराज तथा र्याक भौतिक प्रमाणीकरण</span>
                 </div>
-              </div>
+              </button>
             </div>
           )}
         </div>
