@@ -1,6 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import {
+  Landmark,
+  BookmarkCheck,
+  CheckSquare,
+  Repeat,
+  Library,
+  ScanBarcode,
+  Layers,
+  BarChart3,
+  ClipboardCheck,
+  ShoppingCart,
+  ScrollText,
+  Bell,
+  Scale
+} from "lucide-react";
 import NotificationBell from "../../../components/NotificationBell";
+import { NepalGovEmblem } from "../../../components/NepalGovEmblem";
 import "../styles/LibrarianNavbar.css";
 
 const LibrarianNavbar = ({ user, onLogout }) => {
@@ -48,18 +64,18 @@ const LibrarianNavbar = ({ user, onLogout }) => {
   }, [sidebarOpen]);
 
   const navigationLinks = [
-    { to: "/librarian-dashboard", label: "Dashboard", icon: "⌂" },
-    { to: "/librarian/reservations", label: "Reservations", icon: "▤" },
-    { to: "/librarian/verify-token", label: "Verify Token", icon: "✓" },
-    { to: "/librarian/issue-book?tab=issue", label: "Issue Book", icon: "▣" },
-    { to: "/librarian/update-stock", label: "Stock & Copies", icon: "↻" },
-    { to: "/librarian/rfid-audit", label: "RFID & Barcodes", icon: "📡" },
-    { to: "/librarian/shelf-map", label: "Shelf Map", icon: "🗺" },
-    { to: "/librarian/analytics", label: "Analytics & Reports", icon: "📊" },
-    { to: "/librarian/inventory-audit", label: "Stock Verification", icon: "⚖️" },
-    { to: "/librarian/procurement", label: "Procurement & Budgets", icon: "💰" },
-    { to: "/librarian/audit-logs", label: "Audit Logs", icon: "🛡️" },
-    { to: "/librarian/jobs", label: "Automated Jobs", icon: "⏱️" },
+    { to: "/librarian-dashboard", label: "ड्यासबोर्ड (Dashboard)", icon: Landmark },
+    { to: "/librarian/reservations", label: "आरक्षण (Reservations)", icon: BookmarkCheck },
+    { to: "/librarian/verify-token", label: "प्रमाणीकरण (Verify)", icon: CheckSquare },
+    { to: "/librarian/issue-book?tab=issue", label: "सर्कुलेसन (Issue/Return)", icon: Repeat },
+    { to: "/librarian/update-stock", label: "ग्रन्थ सूची (Catalog)", icon: Library },
+    { to: "/librarian/rfid-audit", label: "बारकोड (RFID & Barcode)", icon: ScanBarcode },
+    { to: "/librarian/shelf-map", label: "दराज नक्सा (Shelf Map)", icon: Layers },
+    { to: "/librarian/analytics", label: "तथ्याङ्क (Analytics)", icon: BarChart3 },
+    { to: "/librarian/inventory-audit", label: "मौज्दात (Audit)", icon: ClipboardCheck },
+    { to: "/librarian/procurement", label: "खरिद (Procurement)", icon: ShoppingCart },
+    { to: "/librarian/audit-logs", label: "लेखापरीक्षण (Audit Logs)", icon: ScrollText },
+    { to: "/librarian/jobs", label: "कार्य प्रणाली (Jobs)", icon: Bell },
   ];
 
   return (
@@ -75,11 +91,14 @@ const LibrarianNavbar = ({ user, onLogout }) => {
         >
           {user?.username ? user.username.charAt(0).toUpperCase() : "L"}
         </button>
+
         <Link to="/librarian-dashboard" className="librarian-brand-logo">
-          <div className="librarian-brand-icon-box">📚</div>
+          <div className="librarian-brand-icon-box" style={{ background: "transparent" }}>
+            <NepalGovEmblem width={36} height={36} />
+          </div>
           <div className="librarian-brand-text">
-            <span className="librarian-brand-title">Central Library</span>
-            <span className="librarian-brand-subtitle">Librarian Operations Portal</span>
+            <span className="librarian-brand-title">नेपाल सरकार · केशर पुस्तकालय</span>
+            <span className="librarian-brand-subtitle">Kaiser Library Operations Portal · klib.gov.np</span>
           </div>
         </Link>
 
@@ -88,94 +107,102 @@ const LibrarianNavbar = ({ user, onLogout }) => {
             to="/librarian/reservations"
             className={`librarian-nav-link ${isActive("/librarian/reservations") ? "active" : ""}`}
           >
-             Reservations
+            आरक्षण (Reservations)
           </Link>
           <Link
             to="/librarian/verify-token"
             className={`librarian-nav-link ${isActive("/librarian/verify-token") ? "active" : ""}`}
           >
-            Verify
+            प्रमाणीकरण (Verify)
           </Link>
           <Link
             to="/librarian/issue-book?tab=issue"
             className={`librarian-nav-link ${isActive("/librarian/issue-book") ? "active" : ""}`}
           >
-            Issue
+            सर्कुलेसन (Issue/Return)
           </Link>
           <Link
             to="/librarian/update-stock"
             className={`librarian-nav-link ${isActive("/librarian/update-stock") ? "active" : ""}`}
           >
-            Stock
+            ग्रन्थ सूची (Stock)
           </Link>
           <Link
             to="/librarian/analytics"
             className={`librarian-nav-link ${isActive("/librarian/analytics") ? "active" : ""}`}
           >
-            Analytics
+            तथ्याङ्क (Analytics)
           </Link>
           <Link
             to="/librarian/inventory-audit"
             className={`librarian-nav-link ${isActive("/librarian/inventory-audit") ? "active" : ""}`}
           >
-            Audit
+            मौज्दात (Audit)
           </Link>
           <Link
             to="/librarian/procurement"
             className={`librarian-nav-link ${isActive("/librarian/procurement") ? "active" : ""}`}
           >
-            Procurement
+            खरिद (Procurement)
           </Link>
           <Link
             to="/librarian/audit-logs"
             className={`librarian-nav-link ${isActive("/librarian/audit-logs") ? "active" : ""}`}
           >
-            Audit Logs
+            लेखापरीक्षण (Audit Logs)
           </Link>
           <Link
             to="/librarian/jobs"
             className={`librarian-nav-link ${isActive("/librarian/jobs") ? "active" : ""}`}
           >
-            Jobs
+            कार्य (Jobs)
           </Link>
         </nav>
 
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <NotificationBell userRole="librarian" />
           <div className="librarian-profile-menu" ref={profileMenuRef}>
-          <button
-            type="button"
-            className="librarian-profile-trigger"
-            onClick={() => setProfileOpen((open) => !open)}
-            aria-expanded={profileOpen}
-            aria-haspopup="menu"
-            aria-label="Open profile menu"
-          >
-            <div className="librarian-avatar-icon">
-              {user?.username ? user.username.charAt(0).toUpperCase() : "L"}
-            </div>
-            <span className="librarian-profile-trigger-name">
-              {user?.username || user?.email?.split("@")[0] || "Librarian"}
-            </span>
-            <span className="librarian-profile-caret">▾</span>
-          </button>
-          {profileOpen && (
-            <div className="librarian-profile-dropdown" role="menu">
-              <div className="librarian-profile-name">
-                <div style={{ fontWeight: 800 }}>{user?.username || "Librarian"}</div>
-                <div style={{ fontSize: "0.75rem", color: "#64748b", fontWeight: 500, marginTop: "2px" }}>
-                  {user?.email || "staff@nitandhra.ac.in"}
-                </div>
-                <div className="librarian-role-tag" style={{ marginTop: "4px" }}>
-                  Librarian Staff
-                </div>
+            <button
+              type="button"
+              className="librarian-profile-trigger"
+              onClick={() => setProfileOpen((open) => !open)}
+              aria-expanded={profileOpen}
+              aria-haspopup="menu"
+              aria-label="Open profile menu"
+            >
+              <div className="librarian-avatar-icon">
+                {user?.username ? user.username.charAt(0).toUpperCase() : "L"}
               </div>
-              <button type="button" className="librarian-profile-action librarian-profile-logout" role="menuitem" onClick={handleLogoutClick}>Logout</button>
-            </div>
-          )}
+              <span className="librarian-profile-trigger-name">
+                {user?.username || user?.email?.split("@")[0] || "पुस्तकालय अधिकृत"}
+              </span>
+              <span className="librarian-profile-caret">▾</span>
+            </button>
+            {profileOpen && (
+              <div className="librarian-profile-dropdown" role="menu">
+                <div className="librarian-profile-name">
+                  <div style={{ fontWeight: 800 }}>{user?.username || "पुस्तकालय अधिकृत"}</div>
+                  <div style={{ fontSize: "0.75rem", color: "#64748b", fontWeight: 500, marginTop: "2px" }}>
+                    {user?.email || "librarian@klib.gov.np"}
+                  </div>
+                  <div className="librarian-role-tag" style={{ marginTop: "4px" }}>
+                    नेपाल सरकार · अधिकृत
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  className="librarian-profile-action librarian-profile-logout"
+                  role="menuitem"
+                  onClick={handleLogoutClick}
+                >
+                  सुरक्षित बाहिरिनुहोस् (Logout)
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
+
       <div
         className={`librarian-sidebar-backdrop ${sidebarOpen ? "is-open" : ""}`}
         onClick={() => setSidebarOpen(false)}
@@ -194,23 +221,46 @@ const LibrarianNavbar = ({ user, onLogout }) => {
               {user?.username ? user.username.charAt(0).toUpperCase() : "L"}
             </div>
             <div>
-              <strong>{user?.username || user?.email?.split("@")[0] || "Librarian"}</strong>
-              <span>Librarian Staff</span>
+              <strong>{user?.username || user?.email?.split("@")[0] || "पुस्तकालय अधिकृत"}</strong>
+              <span>केशर पुस्तकालय · अधिकृत</span>
             </div>
           </div>
-          <button type="button" className="librarian-sidebar-close" onClick={() => setSidebarOpen(false)} aria-label="Close navigation">×</button>
+          <button
+            type="button"
+            className="librarian-sidebar-close"
+            onClick={() => setSidebarOpen(false)}
+            aria-label="Close navigation"
+          >
+            ×
+          </button>
         </div>
         <nav className="librarian-sidebar-nav">
-          <span className="librarian-sidebar-label">LIBRARY OPERATIONS</span>
-          {navigationLinks.map(({ to, label, icon }) => (
-            <Link key={to} to={to} className={`librarian-sidebar-link ${isActive(to.split("?")[0]) ? "active" : ""}`}>
-              <span className="librarian-sidebar-link-icon" aria-hidden="true">{icon}</span>
+          <span className="librarian-sidebar-label">LIBRARY OPERATIONS · ग्रन्थालय सेवा</span>
+          {navigationLinks.map(({ to, label, icon: IconComponent }) => (
+            <Link
+              key={to}
+              to={to}
+              className={`librarian-sidebar-link ${isActive(to.split("?")[0]) ? "active" : ""}`}
+            >
+              <span className="librarian-sidebar-link-icon" aria-hidden="true">
+                <IconComponent size={16} />
+              </span>
               {label}
             </Link>
           ))}
-          <span className="librarian-sidebar-link is-disabled"><span className="librarian-sidebar-link-icon" aria-hidden="true">₹</span>Fines <small>Coming soon</small></span>
+          <Link
+            to="/librarian/fines"
+            className="librarian-sidebar-link"
+          >
+            <span className="librarian-sidebar-link-icon" aria-hidden="true">
+              <Scale size={16} />
+            </span>
+            शुल्क तथा जरिवाना (Fines & Ledger)
+          </Link>
         </nav>
-        <button type="button" className="librarian-sidebar-logout" onClick={handleLogoutClick}>Log out</button>
+        <button type="button" className="librarian-sidebar-logout" onClick={handleLogoutClick}>
+          सुरक्षित बाहिरिनुहोस् (Log out)
+        </button>
       </aside>
     </header>
   );

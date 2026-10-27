@@ -2,14 +2,15 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NotificationBell from "../../../components/NotificationBell";
+import { NepalGovEmblem } from "../../../components/NepalGovEmblem";
 
 const navItems = [
-  { to: "/student-dashboard", label: "Home", mobileLabel: "Home", icon: "home", end: true },
-  { to: "/student-dashboard/books", label: "Browse Books", mobileLabel: "Browse", icon: "books" },
-  { to: "/student-dashboard/digital-library", label: "Digital Library", mobileLabel: "Digital", icon: "digital" },
-  { to: "/student-dashboard/requests", label: "Requests", mobileLabel: "Requests", icon: "requests" },
-  { to: "/student-dashboard/payfine", label: "Pay Fine", mobileLabel: "Fine", icon: "fine" },
-  { to: "/student-dashboard/history", label: "View History", mobileLabel: "History", icon: "history" },
+  { to: "/student-dashboard", label: "गृहपृष्ठ (Home)", mobileLabel: "गृह", icon: "home", end: true },
+  { to: "/student-dashboard/books", label: "ग्रन्थ सूची (Browse)", mobileLabel: "ग्रन्थ", icon: "books" },
+  { to: "/student-dashboard/digital-library", label: "ई-पुस्तकालय (E-Library)", mobileLabel: "डिजिटल", icon: "digital" },
+  { to: "/student-dashboard/requests", label: "अनुरोध (Requests)", mobileLabel: "अनुरोध", icon: "requests" },
+  { to: "/student-dashboard/payfine", label: "शुल्क भुक्तानी (Fine)", mobileLabel: "शुल्क", icon: "fine" },
+  { to: "/student-dashboard/history", label: "अभिलेख (History)", mobileLabel: "इतिहास", icon: "history" },
 ];
 
 const NavIcon = ({ name }) => {
@@ -76,8 +77,8 @@ const StudentNavbar = ({
     <header className="student-navbar-shell">
       <nav className="student-action-nav" aria-label="Student sections">
         <NavLink className="student-organization-brand" to="/student-dashboard" aria-label="Kaiser Library home">
-          <span className="student-organization-icon" aria-hidden="true">
-            🏛️
+          <span className="student-organization-icon" aria-hidden="true" style={{ background: "transparent" }}>
+            <NepalGovEmblem width={34} height={34} />
           </span>
           <span className="student-organization-copy">
             <strong>केशर पुस्तकालय</strong>

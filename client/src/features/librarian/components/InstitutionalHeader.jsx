@@ -19,24 +19,24 @@ import NotificationBell from "../../../components/NotificationBell";
 import "../styles/InstitutionalHeader.css";
 
 const ROUTE_TITLES = {
-  "/librarian-dashboard": "Dashboard Overview",
-  "/librarian/update-stock": "Book Catalog & Copies",
-  "/librarian/shelf-map": "Shelf & Rack Navigator",
-  "/librarian/rfid-audit": "Barcode & RFID Circulation Desk",
-  "/librarian/issue-book": "Issue, Return & Renewal Desk",
-  "/librarian/reservations": "Smart Reservation Queue",
-  "/librarian/members": "Students & Member Registry",
-  "/librarian/fines": "Fines & Payments Ledger",
-  "/librarian/analytics": "Circulation Analytics & Reports",
-  "/librarian/inventory-audit": "Stock Audits & Verification",
-  "/librarian/procurement": "Book Acquisition & Budgets",
-  "/librarian/jobs": "Background Jobs & Reminders",
-  "/librarian/roles": "Multi-Level Access Control",
-  "/librarian/settings": "Settings & Library Policies",
-  "/librarian/audit-logs": "Immutable Audit Logs",
-  "/librarian/system-health": "Infrastructure & Telemetry",
-  "/librarian/ai-assistant": "AI Library Assistant",
-  "/librarian/recommendations": "Recommendation Intelligence"
+  "/librarian-dashboard": "केन्द्रीय ड्यासबोर्ड (Dashboard Overview)",
+  "/librarian/update-stock": "ग्रन्थ सूची तथा मौज्दात (Book Catalog & Copies)",
+  "/librarian/shelf-map": "दराज तथा र्याक नक्सा (Shelf & Rack Navigator)",
+  "/librarian/rfid-audit": "बारकोड तथा आरएफआईडी डेस्क (Barcode & RFID Desk)",
+  "/librarian/issue-book": "सर्कुलेसन: जारी तथा फिर्ता (Issue, Return & Renewal Desk)",
+  "/librarian/reservations": "अग्रिम आरक्षण सूची (Smart Reservation Queue)",
+  "/librarian/members": "पाठक तथा सदस्य पञ्जीकरण (Member Registry)",
+  "/librarian/fines": "शुल्क तथा जरिवाना अभिलेख (Fines & Revenue Ledger)",
+  "/librarian/analytics": "तथ्याङ्क तथा प्रतिवेदन (Circulation Analytics & Reports)",
+  "/librarian/inventory-audit": "मौज्दात परीक्षण (Stock Audits & Verification)",
+  "/librarian/procurement": "सार्वजनिक खरिद तथा बजेट (Acquisition & Budgets)",
+  "/librarian/jobs": "कार्य तथा सूचना प्रणाली (Background Jobs & Reminders)",
+  "/librarian/roles": "अधिकार नियन्त्रण (Access Control & Roles)",
+  "/librarian/settings": "पुस्तकालय नीति तथा सेटिङ (Library Policies & Directives)",
+  "/librarian/audit-logs": "महालेखापरीक्षण लग (Immutable Audit Logs)",
+  "/librarian/system-health": "प्रणाली स्वास्थ्य तथा टेलिमेट्री (System Telemetry)",
+  "/librarian/ai-assistant": "एआई ग्रन्थ सहायक (AI Library Assistant)",
+  "/librarian/recommendations": "ग्रन्थ सिफारिश प्रणाली (Smart Recommendations)"
 };
 
 const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => {
@@ -50,7 +50,7 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
   const helpRef = useRef(null);
 
   const currentPath = location.pathname;
-  const pageTitle = ROUTE_TITLES[currentPath] || "Central Library Management";
+  const pageTitle = ROUTE_TITLES[currentPath] || "केशर पुस्तकालय व्यवस्थापन (Kaiser Library)";
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -76,7 +76,10 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
         </button>
 
         <div className="header-breadcrumbs">
-          <span className="breadcrumb-root">🏛️ केशर पुस्तकालय (Kaiser Library)</span>
+          <span className="breadcrumb-root" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <Landmark size={15} style={{ color: "#C59B27" }} />
+            <span>नेपाल सरकार · केशर पुस्तकालय</span>
+          </span>
           <span className="breadcrumb-sep">/</span>
           <span className="breadcrumb-current">{pageTitle}</span>
         </div>
@@ -222,10 +225,10 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
           {userMenuOpen && (
             <div className="user-menu-dropdown">
               <div className="user-dropdown-header">
-                <strong>{user?.username || "Librarian Staff"}</strong>
-                <span>{user?.email || "staff@nitandhra.ac.in"}</span>
+                <strong>{user?.username || "पुस्तकालय अधिकृत (Librarian)"}</strong>
+                <span>{user?.email || "librarian@klib.gov.np"}</span>
                 <span className="user-role-badge">
-                  {user?.role ? user.role.toUpperCase() : "LIBRARIAN"}
+                  {user?.role ? `${user.role.toUpperCase()} · GAZETTED` : "LIBRARIAN · GAZETTED"}
                 </span>
               </div>
               <div className="user-dropdown-divider" />
