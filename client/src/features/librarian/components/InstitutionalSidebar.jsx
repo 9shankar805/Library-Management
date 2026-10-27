@@ -96,8 +96,8 @@ const InstitutionalSidebar = ({ user, onLogout, collapsed, onToggleCollapse, mob
           </div>
           {!collapsed && (
             <div className="brand-text">
-              <span className="brand-title">Central Library</span>
-              <span className="brand-subtitle">Smart Institutional LMS</span>
+              <span className="brand-title">Kaiser Library</span>
+              <span className="brand-subtitle">केशर पुस्तकालय · Nepal Gov</span>
             </div>
           )}
           <button
@@ -113,10 +113,10 @@ const InstitutionalSidebar = ({ user, onLogout, collapsed, onToggleCollapse, mob
         {/* Institution Workspace Selector */}
         {!collapsed && (
           <div className="workspace-selector">
-            <span className="workspace-label">CAMPUS NODE</span>
+            <span className="workspace-label">HERITAGE CAMPUS NODE</span>
             <div className="workspace-box">
               <div className="workspace-dot" />
-              <span className="workspace-name">NIT Andhra Pradesh</span>
+              <span className="workspace-name">Kaiser Mahal, Kantipath</span>
               <ChevronDown size={14} className="workspace-chevron" />
             </div>
           </div>

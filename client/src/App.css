@@ -8,18 +8,17 @@
 
 /* Global Footer Styling */
 .app-footer {
-  border-top: 1px solid rgba(203, 213, 225, 0.6);
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(8px);
-  padding: 24px;
+  border-top: 3px solid var(--gov-gold, #C59B27);
+  background-color: var(--gov-navy-dark, #07264A);
+  padding: 24px 20px;
   text-align: center;
   font-size: 0.85rem;
-  color: #64748b;
+  color: #CBD5E1;
   margin-top: auto;
 }
 
 .footer-content {
-  max-width: 1200px;
+  max-width: 1260px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

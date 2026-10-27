@@ -26,14 +26,14 @@
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #0f766e;
+  color: var(--gov-crimson, #c8102e);
 }
 
 .login-title {
   margin: 0 0 8px 0;
   font-size: 1.65rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-weight: 900;
+  color: var(--gov-navy, #0c3866);
 }
 
 .login-subtitle {
@@ -103,9 +103,9 @@
 }
 
 .login-toggle-button.active {
-  background: linear-gradient(135deg, #0f766e, #2563eb);
+  background: linear-gradient(135deg, #0c3866, #164e8a);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 12px rgba(12, 56, 102, 0.25);
 }
 
 .login-label-row {
@@ -209,22 +209,23 @@
 }
 
 .login-submit-button {
-  background: linear-gradient(135deg, #0f766e, #2563eb);
+  background: linear-gradient(135deg, var(--gov-navy, #0c3866), var(--gov-crimson, #c8102e));
   color: #ffffff;
   padding: 14px;
   border-radius: 10px;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 800;
   border: none;
   cursor: pointer;
   margin-top: 8px;
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 6px 16px rgba(12, 56, 102, 0.25);
   transition: all 0.2s ease;
 }
 
 .login-submit-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 20px rgba(12, 56, 102, 0.35);
+  background: linear-gradient(135deg, #07264a, #a50d24);
 }
 
 .login-submit-button:disabled {
@@ -241,13 +242,14 @@
 }
 
 .login-register-link {
-  color: #0f766e;
+  color: var(--gov-navy, #0c3866);
   font-weight: 700;
   text-decoration: none;
 }
 
 .login-register-link:hover {
   text-decoration: underline;
+  color: var(--gov-crimson, #c8102e);
 }
 
 /* Quick Demo Access Box */

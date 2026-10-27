@@ -1,283 +1,509 @@
-.landing-container {
-  max-width: 1200px;
+/* ==========================================================================
+   Kaiser Library (klib.gov.np) Official Landing Page Styles
+   ========================================================================== */
+
+.klib-landing-root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 1. Hero Section */
+.klib-hero-section {
+  background: radial-gradient(circle at 80% 20%, #164e8a 0%, #0c3866 50%, #07264a 100%);
+  color: #ffffff;
+  padding: 60px 20px 50px 20px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--gov-crimson, #c8102e);
+}
+
+.klib-hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 10% 90%, rgba(197, 155, 39, 0.12) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.klib-hero-content {
+  max-width: 1260px;
   margin: 0 auto;
-  padding: 40px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
+  position: relative;
+  z-index: 2;
 }
 
-.hero-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 24px;
-  padding-top: 20px;
-}
-
-.hero-badge {
+.klib-hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
-  border-radius: 30px;
-  background: rgba(15, 118, 110, 0.08);
-  color: #0f766e;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 700;
-  border: 1px solid rgba(15, 118, 110, 0.2);
+  color: #fef08a;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
 }
 
-.hero-badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #0f766e;
-}
-
-.hero-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 800;
-  color: #0f172a;
-  line-height: 1.15;
-  max-width: 850px;
-  margin: 0;
-}
-
-.hero-gradient-text {
-  background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
+.klib-badge-flag {
   font-size: 1.1rem;
-  color: #475569;
-  max-width: 650px;
+}
+
+.klib-hero-headline {
+  font-size: 2.75rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.02em;
+}
+
+.klib-hero-headline-en {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #93c5fd;
+}
+
+.klib-hero-headline-sub {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fef9c3;
+  margin-top: 6px;
+  letter-spacing: normal;
+}
+
+.klib-hero-description {
+  max-width: 820px;
+  font-size: 1.05rem;
   line-height: 1.6;
-  margin: 0;
+  color: #cbd5e1;
+  margin: 0 0 32px 0;
 }
 
-.cta-group {
+.klib-hero-actions {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 8px;
+  margin-bottom: 44px;
 }
 
-.primary-cta {
-  padding: 14px 28px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #0f766e, #2563eb);
-  color: #ffffff !important;
-  font-weight: 700;
-  font-size: 1rem;
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
-  transition: all 0.2s ease;
+.klib-cta-primary {
+  background: var(--gov-crimson, #c8102e);
+  color: #ffffff;
+  padding: 13px 26px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
   text-decoration: none;
+  box-shadow: 0 6px 18px rgba(200, 16, 46, 0.4);
+  transition: all 0.2s ease;
 }
 
-.primary-cta:hover {
+.klib-cta-primary:hover {
+  background: #a50d24;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(200, 16, 46, 0.5);
 }
 
-.secondary-cta {
-  padding: 14px 28px;
-  border-radius: 12px;
+.klib-cta-secondary {
   background: #ffffff;
-  color: #0f172a !important;
-  font-weight: 700;
-  font-size: 1rem;
-  border: 1px solid #cbd5e1;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
-  transition: all 0.2s ease;
+  color: var(--gov-navy, #0c3866);
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
   text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
 }
 
-.secondary-cta:hover {
+.klib-cta-secondary:hover {
   background: #f8fafc;
   transform: translateY(-2px);
+  color: #07264a;
 }
 
-.stats-grid {
+.klib-cta-outline {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 13px 22px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.2s ease;
+}
+
+.klib-cta-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Stats Ribbon */
+.klib-stats-ribbon {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 900px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  background: rgba(7, 38, 74, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 18px 24px;
+  backdrop-filter: blur(10px);
 }
 
-.stat-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  padding: 24px;
-  border-radius: 18px;
-  border: 1px solid rgba(203, 213, 225, 0.6);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
-}
-
-.stat-value {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #0f766e;
-  margin: 0 0 4px 0;
-}
-
-.stat-label {
-  font-size: 0.88rem;
-  color: #64748b;
-  margin: 0;
-  font-weight: 600;
-}
-
-.roles-section {
+.klib-stat-tile {
   display: flex;
   flex-direction: column;
-  gap: 32px;
 }
 
-.section-header {
+.klib-stat-num {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fef08a;
+  letter-spacing: -0.01em;
+}
+
+.klib-stat-label {
+  font-size: 0.8rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* 2. Core Library Services */
+.klib-services-section {
+  background-color: var(--bg-primary, #f4f6f9);
+  padding: 60px 20px;
+}
+
+.klib-section-header {
+  max-width: 1260px;
+  margin: 0 auto 36px auto;
   text-align: center;
 }
 
-.section-title {
-  font-size: 1.8rem;
+.klib-section-tag {
+  display: inline-block;
+  font-size: 0.74rem;
   font-weight: 800;
-  color: #0f172a;
-  margin: 0 0 8px 0;
+  letter-spacing: 0.08em;
+  color: var(--gov-crimson, #c8102e);
+  margin-bottom: 6px;
 }
 
-.section-subtitle {
-  font-size: 1rem;
-  color: #64748b;
-  margin: 0;
+.klib-section-title {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: var(--gov-navy, #0c3866);
+  margin: 0 0 10px 0;
 }
 
-.cards-grid {
+.klib-section-desc {
+  font-size: 0.95rem;
+  color: #475569;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.klib-services-grid {
+  max-width: 1260px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
 }
 
-.role-card {
+.klib-service-card {
   background: #ffffff;
-  padding: 32px;
-  border-radius: 20px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+  border-radius: 14px;
+  padding: 28px 24px;
+  border: 1px solid #dce3ec;
+  box-shadow: 0 4px 14px rgba(7, 38, 74, 0.04);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  transition: all 0.25s ease;
 }
 
-.card-icon {
+.klib-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(7, 38, 74, 0.1);
+  border-color: #93c5fd;
+}
+
+.klib-card-icon {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
+  margin-bottom: 16px;
 }
 
-.card-icon.student {
-  background: rgba(15, 118, 110, 0.1);
-  color: #0f766e;
+.klib-card-icon.navy { background: #e0f2fe; }
+.klib-card-icon.crimson { background: #fee2e2; }
+.klib-card-icon.gold { background: #fef3c7; }
+.klib-card-icon.green { background: #dcfce7; }
+
+.klib-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--gov-navy, #0c3866);
+  margin: 0 0 10px 0;
 }
 
-.card-icon.librarian {
-  background: rgba(37, 99, 235, 0.1);
-  color: #2563eb;
+.klib-card-text {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0 0 18px 0;
+  flex: 1;
 }
 
-.card-title {
-  font-size: 1.4rem;
+.klib-card-link {
+  font-size: 0.88rem;
   font-weight: 700;
+  color: var(--gov-navy, #0c3866);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+
+.klib-card-link:hover {
+  color: var(--gov-crimson, #c8102e);
+}
+
+.klib-card-link.crimson:hover {
+  color: #991b1b;
+}
+
+/* 3. Role Access Portals */
+.klib-roles-section {
+  background: #ffffff;
+  padding: 60px 20px;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.klib-roles-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 26px;
+}
+
+.klib-role-card {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 30px;
+  border: 1.5px solid #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.klib-role-card.student:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.klib-role-card.librarian:hover {
+  border-color: #0c3866;
+  background: #f0f7ff;
+}
+
+.klib-role-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.role-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.role-title {
+  font-size: 1.15rem;
+  font-weight: 800;
   color: #0f172a;
   margin: 0;
 }
 
-.card-text {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.domain-tag {
-  padding: 6px 12px;
-  border-radius: 8px;
-  background: #ccfbf1;
-  color: #0f766e;
-  font-size: 0.8rem;
+.role-badge {
+  font-size: 0.72rem;
   font-weight: 700;
-}
-
-.domain-tag.librarian {
-  background: #dbeafe;
   color: #1d4ed8;
+  background: #dbeafe;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 4px;
 }
 
-.card-button {
-  margin-top: 8px;
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  background: #f1f5f9;
-  color: #0f172a !important;
-  text-align: center;
-  font-weight: 700;
+.role-badge.librarian {
+  color: #047857;
+  background: #d1fae5;
+}
+
+.role-text {
   font-size: 0.9rem;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  box-sizing: border-box;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0 0 16px 0;
+  flex: 1;
 }
 
-.card-button:hover {
+.role-credentials-hint {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  color: #334155;
+  margin-bottom: 20px;
+}
+
+.role-credentials-hint code {
+  color: #b91c1c;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.role-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.role-login-btn {
+  background: var(--gov-navy, #0c3866);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.role-login-btn:hover {
+  background: #07264a;
+  color: #ffffff;
+}
+
+.role-login-btn.librarian {
+  background: var(--gov-crimson, #c8102e);
+}
+
+.role-login-btn.librarian:hover {
+  background: #a50d24;
+}
+
+.role-register-btn {
+  background: transparent;
+  color: #334155;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #cbd5e1;
+  transition: all 0.2s ease;
+}
+
+.role-register-btn:hover {
   background: #e2e8f0;
 }
 
-.features-section {
-  width: 100%;
-}
-
-.feature-box {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 24px;
-  padding: 40px;
+/* 4. Heritage Location & Contact Strip */
+.klib-location-strip {
+  background-color: var(--gov-navy-dark, #07264a);
   color: #ffffff;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+  padding: 36px 20px;
+  border-top: 3px solid var(--gov-gold, #c59b27);
 }
 
-.feature-item {
+.klib-location-container {
+  max-width: 1260px;
+  margin: 0 auto;
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.feature-icon {
-  font-size: 1.8rem;
+.klib-loc-tag {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #fbbf24;
+  display: block;
+  margin-bottom: 4px;
 }
 
-.feature-title {
-  font-size: 1.1rem;
-  font-weight: 700;
+.klib-loc-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
   margin: 0 0 6px 0;
-  color: #f8fafc;
 }
 
-.feature-desc {
-  font-size: 0.88rem;
+.klib-loc-details {
+  font-size: 0.86rem;
+  color: #cbd5e1;
+  margin: 0 0 4px 0;
+}
+
+.klib-loc-hours {
+  font-size: 0.82rem;
   color: #94a3b8;
   margin: 0;
-  line-height: 1.5;
+}
+
+.klib-location-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.loc-badge {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 4px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .klib-hero-headline {
+    font-size: 2rem;
+  }
+  .klib-hero-headline-en {
+    font-size: 1.4rem;
+  }
+  .klib-hero-actions {
+    flex-direction: column;
+  }
+  .klib-stats-ribbon {
+    grid-template-columns: 1fr 1fr;
+  }
 }

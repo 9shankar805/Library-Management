@@ -86,8 +86,8 @@ function AppContent() {
             />
           </main>
           <footer className="institutional-footer">
-            <span>© 2026 Central Library Management System · Campus Node: NIT Andhra Pradesh</span>
-            <span>Enterprise Grade RBAC · Real-time Audit & Telemetry Active</span>
+            <span>© 2026 केशर पुस्तकालय (Kaiser Library) · शिक्षा, विज्ञान तथा प्रविधि मन्त्रालय, नेपाल सरकार · कान्तिपथ, काठमाडौं</span>
+            <span>National Heritage & Digital Archives Node (klib.gov.np) · Enterprise RBAC Active</span>
           </footer>
         </div>
 
@@ -116,8 +116,8 @@ function AppContent() {
       {!isStudentDashboard && (
         <footer className="app-footer">
           <div className="footer-content">
-            <span>© 2026 Central Library Management System</span>
-            <span>Secure Domain OTP & Role-Based Access Control</span>
+            <span>© 2026 केशर पुस्तकालय (Kaiser Library), कान्तिपथ, काठमाडौं · नेपाल सरकार (klib.gov.np)</span>
+            <span>शिक्षा, विज्ञान तथा प्रविधि मन्त्रालय · राष्ट्रिय धरोहर तथा ई-पुस्तकालय व्यवस्थापन</span>
           </div>
         </footer>
       )}

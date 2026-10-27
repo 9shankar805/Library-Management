@@ -1,34 +1,68 @@
-:root {
-  /* Institutional Enterprise Design Tokens */
-  --bg-primary: #F6F8FC;
-  --surface-white: #FFFFFF;
-  --sidebar-bg: #111B35;
-  --sidebar-hover: #202D4C;
-  --sidebar-border: #1E2B4D;
-  --primary: #5856D6;
-  --primary-hover: #4543B8;
-  --primary-light: #EEF0FD;
-  --text-primary: #172033;
-  --text-secondary: #68738A;
-  --text-muted: #8F9BB3;
-  --border-color: #E4E8F0;
-  --border-subtle: #EEF2F6;
-  --success: #16845B;
-  --success-bg: #E8F5E9;
-  --warning: #D97706;
-  --warning-bg: #FEF3C7;
-  --error: #DC4545;
-  --error-bg: #FEE2E2;
-  --info: #2875D7;
-  --info-bg: #E0F2FE;
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
 
-  --shadow-sm: 0 1px 2px rgba(17, 27, 53, 0.04);
-  --shadow-md: 0 4px 12px rgba(17, 27, 53, 0.06);
-  --shadow-lg: 0 12px 28px rgba(17, 27, 53, 0.09);
+:root {
+  /* ====================================================================
+     Government of Nepal · Kaiser Library (klib.gov.np) Design Tokens
+     केशर पुस्तकालय, कान्तिपथ, काठमाडौं - आधिकारिक वेब पोर्टल ढाँचा
+     ==================================================================== */
+  --bg-primary: #F4F6F9;
+  --surface-white: #FFFFFF;
+  
+  /* Government Navy & Midnight Palette */
+  --gov-navy-dark: #07264A;       /* Masthead, Sidebar & Footer Base */
+  --gov-navy: #0C3866;            /* Primary Navigation & Header Brand */
+  --gov-navy-light: #164E8A;      /* Interactive Elements & Secondary Links */
+  --gov-navy-subtle: #EBF3FC;     /* Hover states & Soft Backgrounds */
+
+  /* National Flag Crimson & Royal Accents */
+  --gov-crimson: #C8102E;         /* Nepal Crimson / Flag Red (Active/Alert/CTA) */
+  --gov-crimson-hover: #A50D24;
+  --gov-crimson-light: #FDF2F2;
+
+  /* Historic Kaiser Mahal Brass & Gold Accents */
+  --gov-gold: #C59B27;            /* Royal Historic Gold / Brass Emblem */
+  --gov-gold-hover: #A67F1A;
+  --gov-gold-light: #FEF9C3;
+
+  /* Active Sidebar & Dashboard Token Mapping */
+  --sidebar-bg: #07264A;
+  --sidebar-hover: #0C3866;
+  --sidebar-border: #133966;
+  --sidebar-active: #C8102E;
+
+  /* Standard Application Semantic Aliases */
+  --primary: #0C3866;
+  --primary-hover: #07264A;
+  --primary-light: #EBF3FC;
+  --secondary: #C8102E;
+  --secondary-hover: #A50D24;
+
+  /* Text & Border Shades */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --border-color: #DCE3EC;
+  --border-subtle: #EDF2F7;
+
+  /* Status Colors */
+  --success: #15803D;
+  --success-bg: #DCFCE7;
+  --warning: #B45309;
+  --warning-bg: #FEF3C7;
+  --error: #C8102E;
+  --error-bg: #FEE2E2;
+  --info: #0C3866;
+  --info-bg: #EBF3FC;
+
+  /* Elevations & System Geometry */
+  --shadow-sm: 0 1px 3px rgba(7, 38, 74, 0.05);
+  --shadow-md: 0 4px 14px rgba(7, 38, 74, 0.08);
+  --shadow-lg: 0 12px 30px rgba(7, 38, 74, 0.12);
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: 'Inter', 'Mukta', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-devanagari: 'Mukta', 'Kalimati', 'Preeti', sans-serif;
 }
 
 * {
@@ -76,4 +110,3 @@ input::-ms-reveal,
 input::-ms-clear {
   display: none;
 }
-

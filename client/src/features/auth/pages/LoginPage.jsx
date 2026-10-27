@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { NepalGovEmblem } from "../../../components/NepalGovEmblem";
 import "../styles/LoginPage.css";
 
 const DEMO_USERS = {
@@ -179,9 +180,12 @@ const LoginPage = ({ onAuthSuccess }) => {
     <div className="login-page-shell">
       <div className="login-card">
         <div className="login-card-header">
-          <p className="login-card-tag">CENTRAL LIBRARY MANAGEMENT SYSTEM</p>
-          <h2 className="login-title">Sign in to your account</h2>
-          <p className="login-subtitle">Select your role and enter your official credentials.</p>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "12px" }}>
+            <NepalGovEmblem width={68} height={68} />
+          </div>
+          <p className="login-card-tag">नेपाल सरकार · शिक्षा, विज्ञान तथा प्रविधि मन्त्रालय</p>
+          <h2 className="login-title">केशर पुस्तकालय <span style={{ fontSize: "1.1rem", color: "#475569" }}>(Kaiser Library)</span></h2>
+          <p className="login-subtitle">कान्तिपथ, काठमाडौं · आधिकारिक पोर्टल प्रवेश</p>
         </div>
 
         {error && <div className="login-error-banner">{error}</div>}
