@@ -250,10 +250,151 @@
   text-decoration: underline;
 }
 
+/* Quick Demo Access Box */
+.login-demo-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #f0f9ff 100%);
+  border: 1.5px solid #bbf7d0;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+}
+
+.login-demo-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.login-demo-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #047857;
+}
+
+.login-demo-hint {
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.login-demo-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.login-demo-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.login-demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.1);
+}
+
+.login-demo-btn.librarian {
+  border-color: #99f6e4;
+}
+
+.login-demo-btn.librarian:hover {
+  border-color: #0f766e;
+  background: #f0fdfa;
+}
+
+.login-demo-btn.student {
+  border-color: #bfdbfe;
+}
+
+.login-demo-btn.student:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.demo-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.demo-btn-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-btn-text strong {
+  font-size: 0.86rem;
+  color: #0f172a;
+}
+
+.demo-btn-text small {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.login-demo-fill-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: #64748b;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.login-demo-fill-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #0f766e;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.login-demo-fill-link:hover {
+  color: #115e59;
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.login-divider span {
+  padding: 0 12px;
+}
+
 @media (max-width: 520px) {
   .login-page-shell { min-height: calc(100vh - 120px); padding: 20px 12px; }
   .login-card { border-radius: 16px; padding: 24px 18px; }
   .login-title { font-size: 1.45rem; }
+  .login-demo-actions { grid-template-columns: 1fr; }
   .student-email-suffix { font-size: 0.78rem; padding: 12px 8px; }
   .login-label-row { align-items: flex-start; gap: 8px; }
 }
