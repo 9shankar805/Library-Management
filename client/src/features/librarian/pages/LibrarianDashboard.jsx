@@ -273,40 +273,40 @@ const LibrarianDashboard = ({ user }) => {
       <section className="librarian-hero-section">
         <div className="librarian-hero-badge">
           <span className="librarian-hero-badge-dot"></span>
-          Central Library • Staff Operations Hub
+          🏛️ नेपाल सरकार · केशर पुस्तकालय (Kaiser Library) · अधिकृत कार्यकक्ष
         </div>
         <h1 className="librarian-hero-title">
-          Welcome back, <span className="librarian-gradient-text">{currentUser?.username || "Librarian"}</span>
+          स्वागतम् (Welcome), <span className="librarian-gradient-text">{currentUser?.username || "Alice Librarian"}</span>
         </h1>
         <p className="librarian-hero-subtitle">
-          Manage circulation, verify student authorization OTP tokens, issue physical books, and keep library stock synchronized in real time.
+          केशर महल, कान्तिपथ, काठमाडौं · पुस्तक सर्कुलेसन, आरएफआईडी व्यवस्थापन, क्याटलग तथा अडिट प्रणाली
         </p>
       </section>
 
       {/* Staff Profile Overview / Stats Grid */}
       <section className="librarian-stats-grid">
         <div className="librarian-stat-card">
-          <span className="librarian-stat-label">Staff Administrator</span>
-          <span className="librarian-stat-value">{currentUser?.username || "Librarian Staff"}</span>
-          <div className="librarian-stat-badge">Active Session</div>
+          <span className="librarian-stat-label">पुस्तकालय अधिकृत (Librarian Staff)</span>
+          <span className="librarian-stat-value">{currentUser?.username || "Alice Librarian"}</span>
+          <div className="librarian-stat-badge">सक्रिय सत्र (Active)</div>
         </div>
 
         <div className="librarian-stat-card">
-          <span className="librarian-stat-label">Staff ID</span>
-          <span className="librarian-stat-value">{currentUser?.staff_id || "LIB-STAFF-01"}</span>
-          <div className="librarian-stat-badge">Verified ID</div>
+          <span className="librarian-stat-label">कर्मचारी परिचय (Staff ID)</span>
+          <span className="librarian-stat-value">{currentUser?.staff_id || "LIB101"}</span>
+          <div className="librarian-stat-badge">प्रमाणित अधिकृत</div>
         </div>
 
         <div className="librarian-stat-card">
-          <span className="librarian-stat-label">Authorized Role</span>
-          <span className="librarian-stat-value">Librarian</span>
-          <div className="librarian-stat-badge">Full Privileges</div>
+          <span className="librarian-stat-label">अधिकार क्षेत्र (Authorized Role)</span>
+          <span className="librarian-stat-value">Librarian Admin</span>
+          <div className="librarian-stat-badge">पूर्ण अधिकार (Full)</div>
         </div>
 
         <div className="librarian-stat-card">
-          <span className="librarian-stat-label">Official Email</span>
+          <span className="librarian-stat-label">आधिकारिक ईमेल (Official Email)</span>
           <span className="librarian-stat-value" style={{ fontSize: "1.05rem" }}>
-            {currentUser?.email || "staff@nitandhra.ac.in"}
+            {currentUser?.email || "librarian@klib.gov.np"}
           </span>
           <div className="librarian-stat-badge">Domain Authenticated</div>
         </div>

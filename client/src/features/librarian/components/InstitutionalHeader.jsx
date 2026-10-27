@@ -76,7 +76,7 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
         </button>
 
         <div className="header-breadcrumbs">
-          <span className="breadcrumb-root">Portal</span>
+          <span className="breadcrumb-root">🏛️ केशर पुस्तकालय (Kaiser Library)</span>
           <span className="breadcrumb-sep">/</span>
           <span className="breadcrumb-current">{pageTitle}</span>
         </div>

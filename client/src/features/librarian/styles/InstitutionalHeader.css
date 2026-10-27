@@ -37,8 +37,9 @@
 }
 
 .breadcrumb-root {
-  color: var(--text-secondary, #68738A);
-  font-weight: 500;
+  color: var(--gov-navy, #0c3866);
+  font-weight: 800;
+  font-size: 0.88rem;
 }
 
 .breadcrumb-sep {
@@ -122,19 +123,21 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: var(--primary, #5856D6);
+  background: var(--gov-crimson, #c8102e);
   color: #FFFFFF;
   border: none;
   padding: 8px 14px;
   border-radius: 8px;
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(200, 16, 46, 0.25);
 }
 
 .btn-quick-create:hover {
-  background: var(--primary-hover, #4543B8);
+  background: var(--gov-crimson-hover, #a50d24);
+  transform: translateY(-1px);
 }
 
 .header-icon-btn {

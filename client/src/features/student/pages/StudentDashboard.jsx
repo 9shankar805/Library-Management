@@ -370,24 +370,23 @@ const StudentDashboard = ({ user, onLogout }) => {
           ====================================================== */}
 
           <section className="student-welcome">
-
             <p className="student-kicker">
-              STUDENT LIBRARY
+              🏛️ नेपाल सरकार · शिक्षा, विज्ञान तथा प्रविधि मन्त्रालय · केशर पुस्तकालय (KAISER LIBRARY)
             </p>
 
             <h1>
-              Welcome back,{" "}
+              स्वागतम् (Welcome),{" "}
               {currentUser.username || "Student"} 👋
             </h1>
 
             <p>
-              Here's an overview of your library activity.
+              केसर महल, कान्तिपथ, काठमाडौं · अनलाइन सूचीपत्र (OPAC), पुस्तक आरक्षण तथा ई-पुस्तकालय पोर्टल
             </p>
 
-            <div style={{ marginTop: "12px", display: "inline-flex", alignItems: "center", gap: "8px", background: "#eff6ff", color: "#1d4ed8", border: "1px solid #bfdbfe", borderRadius: "999px", padding: "8px 14px", fontWeight: 700 }}>
-              Daily reservation attempts: {reservationQuota.totalUsedToday}/{reservationQuota.totalDailyLimit}
+            <div style={{ marginTop: "12px", display: "inline-flex", alignItems: "center", gap: "8px", background: "#fef3c7", color: "#92400e", border: "1.5px solid #fde68a", borderRadius: "999px", padding: "8px 16px", fontWeight: 700 }}>
+              <span>📌 दैनिक पुस्तक आरक्षण कोटा:</span>
+              <strong>{reservationQuota.totalUsedToday}/{reservationQuota.totalDailyLimit} पुस्तकहरू</strong>
             </div>
-
           </section>
 
 

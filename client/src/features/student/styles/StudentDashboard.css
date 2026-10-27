@@ -21,23 +21,23 @@
   padding: 12px 4px 0;
 }
 .student-welcome h1 {
-  font-family: Georgia, serif;
-  font-size: 3.25rem;
-  line-height: 1.05;
-  font-weight: 700;
-  color: #0f172a;
+  font-family: var(--font-sans);
+  font-size: 2.5rem;
+  line-height: 1.15;
+  font-weight: 900;
+  color: var(--gov-navy, #0c3866);
   margin: 0;
 }
-.student-welcome > p:last-child { font-size: 1rem; color: #64748b; }
-.student-kicker { color: #0f766e; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; }
+.student-welcome > p:last-child { font-size: 0.95rem; color: #475569; }
+.student-kicker { color: var(--gov-crimson, #c8102e); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; }
 
 .student-action-nav {
   align-items: center;
   align-self: center;
-  background: #1f1f1f;
-  border: 4px solid #252525;
+  background: var(--gov-navy-dark, #07264a);
+  border: 3.5px solid var(--gov-navy, #0c3866);
   border-radius: 999px;
-  box-shadow: 0 22px 34px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 16px 36px rgba(7, 38, 74, 0.28);
   display: flex;
   gap: 10px;
   max-width: 1240px;
@@ -62,14 +62,14 @@
 }
 .student-organization-brand { align-items: center; color: #fff; display: flex; flex: 0 0 auto; gap: 10px; min-width: 215px; text-decoration: none; }
 .student-organization-brand:hover { color: #fff; }
-.student-organization-icon { background: linear-gradient(145deg, #087f73, #2463c7); border-radius: 11px; box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2); display: block; flex: 0 0 46px; height: 46px; position: relative; width: 46px; }
+.student-organization-icon { background: var(--gov-navy, #0c3866); border: 1.5px solid rgba(255, 255, 255, 0.25); border-radius: 11px; box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; flex: 0 0 46px; height: 46px; position: relative; width: 46px; }
 .brand-book { display: block; height: 15px; position: absolute; transform: skewY(0deg); width: 18px; }
 .brand-book-green { background: #9ad85d; left: 11px; top: 12px; }
 .brand-book-pink { background: #f05b79; left: 16px; top: 16px; }
 .brand-book-blue { background: #6ed4e7; left: 21px; top: 21px; }
 .student-organization-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.student-organization-copy strong { color: #fff; font-family: Georgia, serif; font-size: 1.03rem; line-height: 1; white-space: nowrap; }
-.student-organization-copy small { color: #8fd8ca; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.08em; line-height: 1.1; text-transform: uppercase; white-space: nowrap; }
+.student-organization-copy strong { color: #fff; font-size: 1.05rem; font-weight: 800; line-height: 1; white-space: nowrap; }
+.student-organization-copy small { color: #fef08a; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; line-height: 1.1; text-transform: uppercase; white-space: nowrap; }
 
 .student-nav-links {
   align-items: center;
@@ -91,15 +91,16 @@
   font-size: 0.9rem;
   font-weight: 700;
   min-height: 38px;
-  padding: 0 8px;
+  padding: 0 10px;
   text-decoration: none;
   transition: 0.2s ease;
   white-space: nowrap;
 }
 .student-action:hover,
 .student-action.active {
-  background: #ffffff;
-  color: #171717;
+  background: var(--gov-crimson, #c8102e);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(200, 16, 46, 0.4);
 }
 
 .student-nav-search {

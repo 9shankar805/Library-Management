@@ -12,15 +12,15 @@
   min-height: 100%;
 }
 
-/* Header Section matching Update Stock */
+/* Header Section matching Kaiser Library Portal */
 .librarian-hero-section {
-  background: linear-gradient(120deg, rgba(240, 253, 250, 0.96), rgba(255, 255, 255, 0.92));
+  background: linear-gradient(120deg, rgba(235, 243, 252, 0.96), rgba(255, 255, 255, 0.95));
   backdrop-filter: blur(12px);
   border: 1px solid rgba(203, 213, 225, 0.7);
-  border-left: 6px solid #0f766e;
+  border-left: 6px solid var(--gov-navy, #0c3866);
   border-radius: 18px;
   padding: 26px 28px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 8px 24px rgba(7, 38, 74, 0.05);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -31,42 +31,41 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #ccfbf1;
-  color: #0f766e;
+  background: #dbeafe;
+  color: var(--gov-navy, #0c3866);
   font-weight: 800;
   font-size: 0.78rem;
   padding: 4px 12px;
   border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border: 1px solid rgba(15, 118, 110, 0.2);
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(12, 56, 102, 0.2);
 }
 
 .librarian-hero-badge-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #0f766e;
-  box-shadow: 0 0 6px rgba(15, 118, 110, 0.6);
+  background: var(--gov-crimson, #c8102e);
+  box-shadow: 0 0 6px rgba(200, 16, 46, 0.6);
 }
 
 .librarian-hero-title {
   font-size: 1.6rem;
-  font-weight: 800;
+  font-weight: 900;
   color: #0f172a;
   margin: 0;
   line-height: 1.3;
 }
 
 .librarian-gradient-text {
-  background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%);
+  background: linear-gradient(135deg, var(--gov-navy, #0c3866) 0%, var(--gov-crimson, #c8102e) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .librarian-hero-subtitle {
-  color: #64748b;
+  color: #475569;
   font-size: 0.95rem;
   line-height: 1.5;
   margin: 0;

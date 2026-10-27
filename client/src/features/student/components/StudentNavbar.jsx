@@ -75,13 +75,13 @@ const StudentNavbar = ({
   return (
     <header className="student-navbar-shell">
       <nav className="student-action-nav" aria-label="Student sections">
-        <NavLink className="student-organization-brand" to="/student-dashboard" aria-label="Central Library home">
+        <NavLink className="student-organization-brand" to="/student-dashboard" aria-label="Kaiser Library home">
           <span className="student-organization-icon" aria-hidden="true">
-            📚
+            🏛️
           </span>
           <span className="student-organization-copy">
-            <strong>Central Library</strong>
-            <small>Student Portal</small>
+            <strong>केशर पुस्तकालय</strong>
+            <small>Kaiser Library · Nepal</small>
           </span>
         </NavLink>
         <div className="student-nav-links">
