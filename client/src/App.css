@@ -43,21 +43,22 @@
 .institutional-layout-root {
   display: flex;
   min-height: 100vh;
-  background-color: var(--bg-primary, #F6F8FC);
+  background-color: var(--bg-primary, #F4F6F9);
 }
 
 .institutional-main-wrapper {
   flex: 1;
   min-width: 0;
-  margin-left: 260px;
+  margin-left: 275px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--bg-primary, #F4F6F9);
 }
 
 .institutional-layout-root.sidebar-collapsed .institutional-main-wrapper {
-  margin-left: 72px;
+  margin-left: 76px;
 }
 
 .institutional-page-body {
