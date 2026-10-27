@@ -102,9 +102,11 @@ app.get("/api/test-report/download", (req, res) => {
 // Serve static frontend assets if client build exists (unified fullstack deployment)
 if (fs.existsSync(clientDistPath)) {
     app.use(express.static(clientDistPath));
-    app.get("*", (req, res, next) => {
-        if (req.path.startsWith("/api")) return next();
-        res.sendFile(path.join(clientDistPath, "index.html"));
+    app.use((req, res, next) => {
+        if (req.method === "GET" && !req.path.startsWith("/api")) {
+            return res.sendFile(path.join(clientDistPath, "index.html"));
+        }
+        next();
     });
 }
 
