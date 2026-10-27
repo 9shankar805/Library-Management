@@ -20,24 +20,24 @@ import NotificationBell from "../../../components/NotificationBell";
 import "../styles/InstitutionalHeader.css";
 
 const ROUTE_TITLES = {
-  "/librarian-dashboard": "केन्द्रीय ड्यासबोर्ड (Dashboard Overview)",
-  "/librarian/update-stock": "ग्रन्थ सूची तथा मौज्दात (Book Catalog & Copies)",
-  "/librarian/shelf-map": "दराज तथा र्याक नक्सा (Shelf & Rack Navigator)",
-  "/librarian/rfid-audit": "बारकोड तथा आरएफआईडी डेस्क (Barcode & RFID Desk)",
-  "/librarian/issue-book": "सर्कुलेसन: जारी तथा फिर्ता (Issue, Return & Renewal Desk)",
-  "/librarian/reservations": "अग्रिम आरक्षण सूची (Smart Reservation Queue)",
-  "/librarian/members": "पाठक तथा सदस्य पञ्जीकरण (Member Registry)",
-  "/librarian/fines": "शुल्क तथा जरिवाना अभिलेख (Fines & Revenue Ledger)",
-  "/librarian/analytics": "तथ्याङ्क तथा प्रतिवेदन (Circulation Analytics & Reports)",
-  "/librarian/inventory-audit": "मौज्दात परीक्षण (Stock Audits & Verification)",
-  "/librarian/procurement": "सार्वजनिक खरिद तथा बजेट (Acquisition & Budgets)",
-  "/librarian/jobs": "कार्य तथा सूचना प्रणाली (Background Jobs & Reminders)",
-  "/librarian/roles": "अधिकार नियन्त्रण (Access Control & Roles)",
-  "/librarian/settings": "पुस्तकालय नीति तथा सेटिङ (Library Policies & Directives)",
-  "/librarian/audit-logs": "महालेखापरीक्षण लग (Immutable Audit Logs)",
-  "/librarian/system-health": "प्रणाली स्वास्थ्य तथा टेलिमेट्री (System Telemetry)",
-  "/librarian/ai-assistant": "एआई ग्रन्थ सहायक (AI Library Assistant)",
-  "/librarian/recommendations": "ग्रन्थ सिफारिश प्रणाली (Smart Recommendations)"
+  "/librarian-dashboard": { ne: "केन्द्रीय ड्यासबोर्ड", en: "Dashboard" },
+  "/librarian/update-stock": { ne: "ग्रन्थ सूची तथा मौज्दात", en: "Catalog" },
+  "/librarian/shelf-map": { ne: "दराज तथा र्याक नक्सा", en: "Shelf Map" },
+  "/librarian/rfid-audit": { ne: "बारकोड तथा आरएफआईडी", en: "RFID Desk" },
+  "/librarian/issue-book": { ne: "सर्कुलेसन (जारी / फिर्ता)", en: "Issue & Return" },
+  "/librarian/reservations": { ne: "अग्रिम आरक्षण सूची", en: "Reservations" },
+  "/librarian/members": { ne: "पाठक पञ्जीकरण", en: "Members" },
+  "/librarian/fines": { ne: "शुल्क तथा जरिवाना", en: "Fines" },
+  "/librarian/analytics": { ne: "तथ्याङ्क तथा प्रतिवेदन", en: "Analytics" },
+  "/librarian/inventory-audit": { ne: "मौज्दात परीक्षण", en: "Stock Audit" },
+  "/librarian/procurement": { ne: "सार्वजनिक खरिद", en: "Procurement" },
+  "/librarian/jobs": { ne: "कार्य तथा सूचना", en: "Jobs & Alerts" },
+  "/librarian/roles": { ne: "अधिकार नियन्त्रण", en: "Roles" },
+  "/librarian/settings": { ne: "नीति तथा सेटिङ", en: "Settings" },
+  "/librarian/audit-logs": { ne: "लेखापरीक्षण लग", en: "Audit Logs" },
+  "/librarian/system-health": { ne: "प्रणाली स्वास्थ्य", en: "System Health" },
+  "/librarian/ai-assistant": { ne: "एआई ग्रन्थ सहायक", en: "AI Assistant" },
+  "/librarian/recommendations": { ne: "ग्रन्थ सिफारिश", en: "Recommendations" }
 };
 
 const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => {
@@ -51,7 +51,7 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
   const helpRef = useRef(null);
 
   const currentPath = location.pathname;
-  const pageTitle = ROUTE_TITLES[currentPath] || "केशर पुस्तकालय व्यवस्थापन (Kaiser Library)";
+  const pageTitle = ROUTE_TITLES[currentPath] || { ne: "पुस्तकालय व्यवस्थापन", en: "Kaiser Library" };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -76,14 +76,17 @@ const InstitutionalHeader = ({ user, onLogout, onOpenMobile, onOpenSearch }) => 
           <Menu size={20} />
         </button>
 
-        <div className="header-breadcrumbs">
-          <span className="breadcrumb-root" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-            <Landmark size={15} style={{ color: "#C59B27" }} />
-            <span>नेपाल सरकार · केशर पुस्तकालय</span>
+        <nav className="header-breadcrumbs" aria-label="Breadcrumb trail">
+          <Link to="/librarian-dashboard" className="breadcrumb-root" title="नेपाल सरकार · केशर पुस्तकालय (Kaiser Library)">
+            <Landmark size={15} style={{ color: "#C59B27", flexShrink: 0 }} />
+            <span className="breadcrumb-root-text">केशर पुस्तकालय</span>
+          </Link>
+          <span className="breadcrumb-sep" aria-hidden="true">/</span>
+          <span className="breadcrumb-current" title={`${pageTitle.ne} (${pageTitle.en})`}>
+            <span className="breadcrumb-title-ne">{pageTitle.ne}</span>
+            <span className="breadcrumb-title-en">({pageTitle.en})</span>
           </span>
-          <span className="breadcrumb-sep">/</span>
-          <span className="breadcrumb-current">{pageTitle}</span>
-        </div>
+        </nav>
       </div>
 
       {/* Center: Global Search Input */}

@@ -5,18 +5,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 20px;
   position: sticky;
   top: 0;
   z-index: 90;
   box-shadow: 0 2px 12px rgba(7, 38, 74, 0.06);
+  gap: 12px;
+  overflow: hidden;
 }
 
 /* Left */
 .header-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .header-mobile-toggle {
@@ -27,35 +31,76 @@
   cursor: pointer;
   padding: 6px;
   border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .header-breadcrumbs {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .breadcrumb-root {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: var(--gov-navy, #0c3866);
   font-weight: 800;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.breadcrumb-root:hover {
+  color: var(--gov-crimson, #C8102E);
 }
 
 .breadcrumb-sep {
-  color: var(--text-muted, #8F9BB3);
+  color: #94A3B8;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
 .breadcrumb-current {
-  color: var(--text-primary, #172033);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  color: #07264A;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.breadcrumb-title-ne {
+  font-weight: 700;
+  color: #07264A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.breadcrumb-title-en {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #64748B;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* Center */
 .header-center {
   flex: 1;
-  max-width: 440px;
-  margin: 0 20px;
+  max-width: 380px;
+  min-width: 150px;
+  margin: 0 8px;
 }
 
 .header-search-bar {
